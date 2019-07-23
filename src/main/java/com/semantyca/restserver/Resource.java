@@ -16,7 +16,13 @@ public class Resource {
     @POST
     @Path("/post")
     public String post() {
-        return "Ola! Este e um POST pedido";
+        return "{\"msg\": \"Ola! Este e um POST pedido\"}";
+    }
+
+    @GET
+    @Path("/get")
+    public String get() {
+        return "{Ola! Este e um GET pedido}";
     }
 
     @GET

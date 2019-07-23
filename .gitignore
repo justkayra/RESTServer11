@@ -1,0 +1,13 @@
+.git
+.classpath
+.gradle/
+.project
+#idea
+.idea
+*.iml
+target/
+#eclipse
+.settings/
+#visualcode
+.vscode/
+bin/
