@@ -1,0 +1,12 @@
+languages:
+  - code: ENG
+    name: english
+    isOn: true
+    position: 1
+  #  isCyrillic: false
+  - code: RUS
+    name: russian
+    isOn: true
+    position: 2
+    isCyrillic: true
+
