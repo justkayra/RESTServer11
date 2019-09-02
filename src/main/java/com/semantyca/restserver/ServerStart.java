@@ -8,6 +8,8 @@ import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
+import javax.xml.ws.Endpoint;
+
 
 public class ServerStart extends Application<ServerConfiguration> {
 
@@ -21,6 +23,7 @@ public class ServerStart extends Application<ServerConfiguration> {
         environment.jersey().register(new Resource());
         environment.jersey().register(new TResource());
         environment.jersey().register(new SResource());
+        environment.jersey().register(new VResource());
     }
 
     @Override
@@ -34,6 +37,10 @@ public class ServerStart extends Application<ServerConfiguration> {
         );
         bootstrap.addBundle(new AssetsBundle("/static/", "/static"));
 
+        String bindingURI = "http://localhost:9888/YrttiInvoicing";
+        YrttiInvoicingRequest webService = new YrttiInvoicingRequest();
+        Endpoint.publish(bindingURI, webService);
+        System.out.println("WebService server started at: " + bindingURI);
 
     }
 
