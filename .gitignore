@@ -11,5 +11,7 @@ target/
 #visualcode
 .vscode/
 bin/
+build/
+out/
 generated_src
 /src/main/resources/wsdl/YrttiContractCustomerInvoicing.wsdl
