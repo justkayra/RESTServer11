@@ -1,5 +1,7 @@
 package com.semantyca.restserver;
 
+import com.semantyca.elastic.ESHandler;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -62,6 +64,14 @@ public class Resource {
         return Response.ok().header("Content-Type", "application/json").build();
     }
 
+    @GET
+    @Path("/populate")
+    @Produces(MediaType.TEXT_HTML)
+    public String getToken(){
+        ESHandler handler = new ESHandler();
+        handler.putdata();
+        return "ok";
+    }
 
 
 }

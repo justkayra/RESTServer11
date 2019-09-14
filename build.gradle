@@ -1,40 +1,35 @@
-buildscript{
-    repositories{
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'no.nils:wsdl2java:0.10'
-    }
-}
-
-apply plugin :'java'
-apply plugin :'no.nils.wsdl2java'
-
-repositories{
-    mavenCentral()
-}
-
-wsdl2java <<{
-    wsdlsToGenerate = [
-            ['-p','com.semantyca.webservices', '-autoNameResolution',"$projectDir/src/main/resources/wsdl/YrttiContractCustomerInvoicing.wsdl"]
-    ]
-    generatedWsdlDir = file("$projectDir/generated_src")
-    wsdlDir = file("$projectDir/src/main/resources/wsdl")
+plugins {
+    id 'java'
 }
 
 group 'com.semantyca'
 version '1.0-SNAPSHOT'
+
 sourceCompatibility = 1.8
 
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     compile group: 'io.dropwizard', name: 'dropwizard-core', version: '1.3.7'
     compile group: 'io.dropwizard', name: 'dropwizard-assets', version: '2.0.0-rc4'
 
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.1'
+
+    compile group: 'org.jdbi', name: 'jdbi', version: '2.78'
+    compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.9.1'
+    compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.9.1'
+
+    compile group: 'org.elasticsearch.client', name: 'transport', version: '7.3.1'
+    compile group: 'org.elasticsearch', name: 'elasticsearch', version: '7.3.1'
+    compile group: 'org.elasticsearch.plugin', name: 'transport-netty4-client', version: '7.3.1'
+    compile group: 'org.elasticsearch.client', name: 'elasticsearch-rest-high-level-client', version: '7.3.1'
+
+
 
 }
