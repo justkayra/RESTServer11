@@ -1,4 +1,4 @@
-package io.kaira.test.cmas;
+package io.kaira.test.test1;
 
 
 import java.util.*;
@@ -8,9 +8,9 @@ import java.util.stream.IntStream;
 public class Step3 {
     static Map<Integer, String> sequence = new HashMap();
     private List<Integer> range;
-    private static String CMAS_TEXT = "CMAS",
-            SYSTEMS_TEXT = "systems",
-            CMAS_SYSTEMS_TEXT = "CMASsystems",
+    private static String TEXT_ONE = "FAFA",
+            TEXT_TWO = "TUTU",
+            TEXT_THREE = "GAGA",
             GOOD_TEXT = "good",
             INTEGER_TEXT = "integer";
 
@@ -19,9 +19,9 @@ public class Step3 {
         range = IntStream.rangeClosed(start, end)
                 .boxed().collect(Collectors.toList());
 
-        buildSquence(CMAS_TEXT, 3);
-        buildSquence(SYSTEMS_TEXT, 5);
-        buildSquence(CMAS_SYSTEMS_TEXT, 15);
+        buildSquence(TEXT_ONE, 3);
+        buildSquence(TEXT_TWO, 5);
+        buildSquence(TEXT_THREE,  15);
     }
 
     public String getOutput() {
@@ -72,9 +72,9 @@ public class Step3 {
 
     private Map<String, Integer> initEmptyMap() {
         Map<String, Integer> counts = new LinkedHashMap<>();
-        counts.put(CMAS_TEXT, 0);
-        counts.put(SYSTEMS_TEXT, 0);
-        counts.put(CMAS_SYSTEMS_TEXT, 0);
+        counts.put(TEXT_ONE, 0);
+        counts.put(TEXT_TWO, 0);
+        counts.put(TEXT_THREE, 0);
         counts.put(GOOD_TEXT, 0);
         counts.put(INTEGER_TEXT, 0);
         return counts;
